@@ -8,7 +8,7 @@ public class DatabaseManager {
 
     private final String url = "jdbc:mysql://localhost:3306/boerse";
     private final String user = "root";
-    private final String password = "password";  // Setze das richtige Passwort
+    private final String password = "password";  // Setzt das passwort. Oder halt auch niocht. Aber dann funktioniert halt nix. Logischerweise. Du....
 
     public Connection connect() {
         Connection conn = null;
