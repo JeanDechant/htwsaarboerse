@@ -3,30 +3,46 @@ package com.boerse.models;
 import java.util.Date;
 
 public class Aktie {
-    private int aktieId;
-    private int companyId;
-    private double cost;
-    private Date dayOfCreation;
-//	    |	 |
-// 	____|____|____
-//	    |    |
-//	____|____|____
-//	    |	 | X
-//	    |	 |
-//
-    public Aktie(int aktieId, int companyId, double cost, Date dayOfCreation) {
+    private int aktieId;         // Eindeutige ID der Aktie
+    private String name;         // Name der Aktie
+    private String kuerzel;      // Börsenkürzel der Aktie
+    private int companyId;       // Zugehörige Firmen-ID
+    private double preis;        // Aktueller Preis der Aktie
+    private Date erstellungsdatum;  // Datum, an dem die Aktie erstellt wurde
+
+    // Konstruktor
+    public Aktie(int aktieId, String name, String kuerzel, int companyId, double preis, Date erstellungsdatum) {
         this.aktieId = aktieId;
+        this.name = name;
+        this.kuerzel = kuerzel;
         this.companyId = companyId;
-        this.cost = cost;
-        this.dayOfCreation = dayOfCreation;
+        this.preis = preis;
+        this.erstellungsdatum = erstellungsdatum;
     }
 
+    // Getter und Setter
     public int getAktieId() {
         return aktieId;
     }
 
     public void setAktieId(int aktieId) {
         this.aktieId = aktieId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getKuerzel() {
+        return kuerzel;
+    }
+
+    public void setKuerzel(String kuerzel) {
+        this.kuerzel = kuerzel;
     }
 
     public int getCompanyId() {
@@ -37,19 +53,31 @@ public class Aktie {
         this.companyId = companyId;
     }
 
-    public double getCost() {
-        return cost;
+    public double getPreis() {
+        return preis;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void setPreis(double preis) {
+        this.preis = preis;
     }
 
-    public Date getDayOfCreation() {
-        return dayOfCreation;
+    public Date getErstellungsdatum() {
+        return erstellungsdatum;
     }
 
-    public void setDayOfCreation(Date dayOfCreation) {
-        this.dayOfCreation = dayOfCreation;
+    public void setErstellungsdatum(Date erstellungsdatum) {
+        this.erstellungsdatum = erstellungsdatum;
+    }
+
+    @Override
+    public String toString() {
+        return "Aktie{" +
+                "aktieId=" + aktieId +
+                ", name='" + name + '\'' +
+                ", kuerzel='" + kuerzel + '\'' +
+                ", companyId=" + companyId +
+                ", preis=" + preis +
+                ", erstellungsdatum=" + erstellungsdatum +
+                '}';
     }
 }

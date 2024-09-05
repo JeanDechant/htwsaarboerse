@@ -1,22 +1,34 @@
 package com.boerse.models;
 
 public class Kunde {
-    private int kundenId;
-    private int personId;
-    private String passwort;
-    private double guthaben;
-    private double credit;
+    private int kundenId;        // ID des Kunden
+    private String name;         // Name des Kunden
+    private String password;     // Passwort für die Authentifizierung
+    private double guthaben;     // Verfügbares Guthaben des Kunden
+    private double kredit;       // Kreditlimit des Kunden
+    private boolean isAdmin;     // Gibt an, ob der Kunde ein Admin ist
 
-    // Wer dies findet, darf es behalten
-
-    public Kunde(int kundenId, int personId, String passwort, double guthaben, double credit) {
+    // Konstruktor ohne Adminstatus
+    public Kunde(int kundenId, String name, String password, double guthaben, double kredit) {
         this.kundenId = kundenId;
-        this.personId = personId;
-        this.passwort = passwort;
+        this.name = name;
+        this.password = password;
         this.guthaben = guthaben;
-        this.credit = credit;
+        this.kredit = kredit;
+        this.isAdmin = false; // Standardmäßig kein Admin
     }
 
+    // Konstruktor mit Adminstatus
+    public Kunde(int kundenId, String name, String password, double guthaben, double kredit, boolean isAdmin) {
+        this.kundenId = kundenId;
+        this.name = name;
+        this.password = password;
+        this.guthaben = guthaben;
+        this.kredit = kredit;
+        this.isAdmin = isAdmin;
+    }
+
+    // Getter und Setter
     public int getKundenId() {
         return kundenId;
     }
@@ -25,20 +37,20 @@ public class Kunde {
         this.kundenId = kundenId;
     }
 
-    public int getPersonId() {
-        return personId;
+    public String getName() {
+        return name;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPasswort() {
-        return passwort;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswort(String passwort) {
-        this.passwort = passwort;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public double getGuthaben() {
@@ -49,11 +61,30 @@ public class Kunde {
         this.guthaben = guthaben;
     }
 
-    public double getCredit() {
-        return credit;
+    public double getKredit() {
+        return kredit;
     }
 
-    public void setCredit(double credit) {
-        this.credit = credit;
+    public void setKredit(double kredit) {
+        this.kredit = kredit;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    @Override
+    public String toString() {
+        return "Kunde{" +
+                "kundenId=" + kundenId +
+                ", name='" + name + '\'' +
+                ", guthaben=" + guthaben +
+                ", kredit=" + kredit +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }

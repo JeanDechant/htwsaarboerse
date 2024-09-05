@@ -1,32 +1,28 @@
 package com.boerse.models;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Transaktion {
-    private int transaktionId;
-    private int kundenId;
-    private int aktieId;
-    private int numberOfStock;
-    private String sortOfTransaction;
-    private String status;
-    private double costPerStock;
-    private boolean boughtStock;
-    private Timestamp time;
+    private int transaktionId;      // Eindeutige ID der Transaktion
+    private int kundenId;           // ID des Kunden, der die Transaktion durchführt
+    private int aktieId;            // ID der Aktie, die gekauft/verkauft wird
+    private int anzahl;             // Anzahl der Aktien, die gehandelt werden
+    private double preis;           // Preis pro Aktie während der Transaktion
+    private Date datum;             // Datum der Transaktion
+    private String typ;             // Typ der Transaktion (Kauf, Verkauf)
 
-    // YOU WERE THE CHOSEN ONE. YOU WERE SUPPOSED TO DESTROY THEM, NOT JOIN THEM!
-
-    public Transaktion(int transaktionId, int kundenId, int aktieId, int numberOfStock, String sortOfTransaction, String status, double costPerStock, boolean boughtStock, Timestamp time) {
+    // Konstruktor
+    public Transaktion(int transaktionId, int kundenId, int aktieId, int anzahl, double preis, Date datum, String typ) {
         this.transaktionId = transaktionId;
         this.kundenId = kundenId;
         this.aktieId = aktieId;
-        this.numberOfStock = numberOfStock;
-        this.sortOfTransaction = sortOfTransaction;
-        this.status = status;
-        this.costPerStock = costPerStock;
-        this.boughtStock = boughtStock;
-        this.time = time;
+        this.anzahl = anzahl;
+        this.preis = preis;
+        this.datum = datum;
+        this.typ = typ;
     }
 
+    // Getter und Setter
     public int getTransaktionId() {
         return transaktionId;
     }
@@ -51,51 +47,48 @@ public class Transaktion {
         this.aktieId = aktieId;
     }
 
-    public int getNumberOfStock() {
-        return numberOfStock;
+    public int getAnzahl() {
+        return anzahl;
     }
 
-    public void setNumberOfStock(int numberOfStock) {
-        this.numberOfStock = numberOfStock;
+    public void setAnzahl(int anzahl) {
+        this.anzahl = anzahl;
     }
 
-    public String getSortOfTransaction() {
-        return sortOfTransaction;
+    public double getPreis() {
+        return preis;
     }
 
-    public void setSortOfTransaction(String sortOfTransaction) {
-        this.sortOfTransaction = sortOfTransaction;
+    public void setPreis(double preis) {
+        this.preis = preis;
     }
 
-    public String getStatus() {
-        return status;
+    public Date getDatum() {
+        return datum;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDatum(Date datum) {
+        this.datum = datum;
     }
 
-    public double getCostPerStock() {
-        return costPerStock;
+    public String getTyp() {
+        return typ;
     }
 
-    public void setCostPerStock(double costPerStock) {
-        this.costPerStock = costPerStock;
+    public void setTyp(String typ) {
+        this.typ = typ;
     }
 
-    public boolean isBoughtStock() {
-        return boughtStock;
-    }
-
-    public void setBoughtStock(boolean boughtStock) {
-        this.boughtStock = boughtStock;
-    }
-
-    public Timestamp getTime() {
-        return time;
-    }
-
-    public void setTime(Timestamp time) {
-        this.time = time;
+    @Override
+    public String toString() {
+        return "Transaktion{" +
+                "transaktionId=" + transaktionId +
+                ", kundenId=" + kundenId +
+                ", aktieId=" + aktieId +
+                ", anzahl=" + anzahl +
+                ", preis=" + preis +
+                ", datum=" + datum +
+                ", typ='" + typ + '\'' +
+                '}';
     }
 }
